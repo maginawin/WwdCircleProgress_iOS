@@ -7,16 +7,18 @@
 //
 
 #import "ViewController.h"
-
+#import "WWDCircleProgressView.h"
 @interface ViewController ()
 
 @end
 
 @implementation ViewController
-
+CGFloat circleAngle;
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    circleAngle = 0;
+    [(WWDCircleProgressView*)_mView setTopPointDrawCircleLineWidth:8 angle:0 direction:0 inColor:[UIColor blueColor]];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -24,4 +26,13 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)addCircle:(id)sender {
+    circleAngle += 0.1f;
+    [(WWDCircleProgressView*)_mView setTopPointDrawCircleLineWidth:8 angle:circleAngle direction:0 inColor:[UIColor blueColor]];
+}
+
+- (IBAction)minusCircle:(id)sender {
+    circleAngle -= 0.1f;
+    [(WWDCircleProgressView*)_mView setTopPointDrawCircleLineWidth:8 angle:circleAngle direction:0 inColor:[UIColor blueColor]];
+}
 @end
